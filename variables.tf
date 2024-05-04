@@ -6,35 +6,35 @@ variable "tags" {
 
 variable "apigw" {
   description = "nombre del api gateway"
-  type = string
+  type        = string
 }
 
 variable "integrationTypeApi" {
   description = "tipo de integración a usar"
-  type = string
+  type        = string
 }
 
 variable "integrationMethodApi" {
   description = "metodo a utilizar por la api"
-  type = string
+  type        = string
 }
 
 variable "integrationHttpMethod" {
   description = "metodo http a utilizar por la api"
-  type = list(string)
+  type        = list(string)
 }
 
 variable "endpointhttpname" {
   description = "nombre para el endpoint http"
-  type = string
+  type        = string
 }
 
 variable "urlendpoint" {
   description = "url del endpoint"
-  type = string
+  type        = string
 }
 
 variable "stagename" {
   description = "nombre para el ambiente"
-  type = list(string)
+  type        = list(string)
 }

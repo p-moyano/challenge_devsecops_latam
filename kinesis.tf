@@ -5,10 +5,10 @@ resource "aws_kinesis_stream" "data_stream_ingest" {
 }
 
 
-
+# Recurso para generar el trigger desde el stream de Kinesis hacia el Lambda
 resource "aws_lambda_event_source_mapping" "kinesis_trigger" {
   event_source_arn  = aws_kinesis_stream.data_stream_ingest.arn
-  function_name     = aws_lambda_function.lambda_ingest
+  function_name     = aws_lambda_function.lambda_ingest.function_name
   starting_position = "LATEST"
   batch_size        = 100
 }

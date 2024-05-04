@@ -5,13 +5,13 @@ resource "aws_api_gateway_rest_api" "api_gateway" {
 }
 
 # Recurso para el endpoint de DynamoDB en API Gateway
-resource "aws_api_gateway_v2_integration" "dynamodb_integration" {
+resource "aws_apigatewayv2_integration" "dynamodb_integration" {
   api_id                    = aws_api_gateway_rest_api.api_gateway.id
   integration_type          = var.integrationTypeApi
   integration_method        = var.integrationMethodApi
   integration_uri           = aws_dynamodb_table.challenge_data_table.arn
-  integration_connection_id = aws_api_gateway_rest_api.api_gateway.id
-  integration_http_method   = var.integrationHttpMethod[0]
+ # integration_connection_id = aws_api_gateway_rest_api.api_gateway.id
+#  integration_http_method   = var.integrationHttpMethod[0]
 }
 
 # Recurso para el endpoint HTTP en API Gateway
@@ -32,6 +32,7 @@ resource "aws_api_gateway_method" "http_api_method" {
   rest_api_id = aws_api_gateway_rest_api.http_api_gateway.id
   resource_id = aws_api_gateway_resource.http_api_resource.id
   http_method = "GET"
+  authorization = "NONE"
 }
 
 # Recurso para la integración HTTP en API Gateway

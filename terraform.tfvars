@@ -16,6 +16,6 @@ integrationHttpMethod = ["POST", "GET"]
 
 endpointhttpname = "my-challenge-http-api"
 
-urlendpoint = "https://my-challenge-endpoint" 
+urlendpoint = "https://my-challenge-endpoint"
 
-stagename = [ "dev", "prod" ]
+stagename = ["dev", "prod"]
