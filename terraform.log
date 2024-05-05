@@ -1,0 +1,581 @@
+To perform exactly these actions, run the following command to apply:
+    terraform apply "terraform-log.log"
+➜  challenge_devsecops_latam git:(develop) ✗ terraform plan -lock=false                                                                  
+Error opening log file: open /Users/p.moyano//LATAM/challenge_devsecops_latam/terraform-plan.log: no such file or directory
+2024-05-03T23:09:57.780-0300 [INFO]  Terraform version: 1.8.2
+2024-05-03T23:09:57.781-0300 [INFO]  Go runtime version: go1.22.1
+2024-05-03T23:09:57.781-0300 [INFO]  CLI args: []string{"terraform", "plan", "-lock=false"}
+2024-05-03T23:09:57.782-0300 [INFO]  Loading CLI configuration from /Users/p.moyano/.terraform.d/credentials.tfrc.json
+2024-05-03T23:09:57.786-0300 [INFO]  CLI command args: []string{"plan", "-lock=false"}
+2024-05-03T23:09:57.808-0300 [INFO]  backend-s3.aws-base: Retrieved credentials: tf_backend.operation=Configure tf_backend.req_id=b8061130-72fc-7e02-8cdd-31730870b1e1 tf_backend.s3.bucket=challenge-devsecops-tfstate tf_backend.s3.path=s3/terraform.tfstate tf_aws.credentials_source=EnvConfigCredentials
+2024-05-03T23:09:58.675-0300 [INFO]  backend-s3.aws-base: Retrieved caller identity from STS: tf_backend.operation=Configure tf_backend.req_id=b8061130-72fc-7e02-8cdd-31730870b1e1 tf_backend.s3.bucket=challenge-devsecops-tfstate tf_backend.s3.path=s3/terraform.tfstate
+2024-05-03T23:09:59.394-0300 [INFO]  backend-s3.aws-base: Retrieved caller identity from STS: tf_backend.operation=Configure tf_backend.req_id=b8061130-72fc-7e02-8cdd-31730870b1e1 tf_backend.s3.bucket=challenge-devsecops-tfstate tf_backend.s3.path=s3/terraform.tfstate
+2024-05-03T23:09:59.656-0300 [INFO]  backend/local: starting Plan operation
+2024-05-03T23:10:00.795-0300 [INFO]  backend-s3: Downloading remote state: tf_backend.operation=Get tf_backend.req_id=7978a627-4929-9275-8b1f-f00586735a9d tf_backend.s3.bucket=challenge-devsecops-tfstate tf_backend.s3.path=s3/terraform.tfstate
+2024-05-03T23:10:02.107-0300 [WARN]  backend-s3: failed to fetch state MD5: tf_backend.operation=Get tf_backend.req_id=7978a627-4929-9275-8b1f-f00586735a9d tf_backend.s3.bucket=challenge-devsecops-tfstate tf_backend.s3.path=s3/terraform.tfstate error="Unable to retrieve item from DynamoDB table \"challenge-devsecops-tflock\": operation error DynamoDB: GetItem, https response error StatusCode: 400, RequestID: 683OGIOEFAHI8J71N2E3M93S0RVV4KQNSO5AEMVJF66Q9ASUAAJG, ResourceNotFoundException: Requested resource not found"
+2024-05-03T23:10:02.118-0300 [INFO]  provider: configuring client automatic mTLS
+2024-05-03T23:10:02.302-0300 [INFO]  provider.terraform-provider-aws_v4.36.1_x5: configuring server automatic mTLS: timestamp=2024-05-03T23:10:02.301-0300
+2024-05-03T23:10:02.462-0300 [INFO]  provider: configuring client automatic mTLS
+2024-05-03T23:10:02.583-0300 [INFO]  provider.terraform-provider-aws_v4.36.1_x5: configuring server automatic mTLS: timestamp=2024-05-03T23:10:02.582-0300
+2024-05-03T23:10:02.698-0300 [WARN]  provider.terraform-provider-aws_v4.36.1_x5: Response contains warning diagnostic: @module=sdk.proto diagnostic_detail="Use the aws_s3_object resource instead" tf_proto_version=5.3 tf_resource_type=aws_s3_bucket_object diagnostic_attribute="AttributeName(\"key\")" diagnostic_summary="Argument is deprecated" @caller=github.com/hashicorp/terraform-plugin-go@v0.14.0/tfprotov5/internal/diag/diagnostics.go:57 tf_req_id=df483a81-15fe-07a7-c515-bdf7ca852115 diagnostic_severity=WARNING tf_provider_addr=registry.terraform.io/hashicorp/aws tf_rpc=ValidateResourceTypeConfig timestamp=2024-05-03T23:10:02.698-0300
+2024-05-03T23:10:02.698-0300 [WARN]  provider.terraform-provider-aws_v4.36.1_x5: Response contains warning diagnostic: diagnostic_summary="Argument is deprecated" tf_req_id=c0ddfab8-c623-f0db-18f5-d222848009d3 tf_rpc=ValidateResourceTypeConfig @caller=github.com/hashicorp/terraform-plugin-go@v0.14.0/tfprotov5/internal/diag/diagnostics.go:57 diagnostic_detail="Use the aws_s3_object resource instead" tf_proto_version=5.3 @module=sdk.proto tf_provider_addr=registry.terraform.io/hashicorp/aws diagnostic_attribute="AttributeName(\"key\")" diagnostic_severity=WARNING tf_resource_type=aws_s3_bucket_object timestamp=2024-05-03T23:10:02.698-0300
+2024-05-03T23:10:02.705-0300 [INFO]  backend/local: plan calling Plan
+2024-05-03T23:10:02.709-0300 [INFO]  provider: configuring client automatic mTLS
+2024-05-03T23:10:02.829-0300 [INFO]  provider.terraform-provider-aws_v4.36.1_x5: configuring server automatic mTLS: timestamp=2024-05-03T23:10:02.828-0300
+2024-05-03T23:10:02.946-0300 [INFO]  provider.terraform-provider-aws_v4.36.1_x5: [INFO] Retrieved credentials from "EnvConfigCredentials"
+2024-05-03T23:10:05.312-0300 [WARN]  Provider "registry.terraform.io/hashicorp/aws" produced an invalid plan for aws_iam_policy.api_gateway_to_cloudwatch, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .path: planned value cty.StringVal("/") for a non-computed attribute
+2024-05-03T23:10:05.312-0300 [WARN]  Provider "registry.terraform.io/hashicorp/aws" produced an invalid plan for aws_cloudwatch_metric_alarm.dynamodb_alarm, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .treat_missing_data: planned value cty.StringVal("missing") for a non-computed attribute
+      - .actions_enabled: planned value cty.True for a non-computed attribute
+2024-05-03T23:10:05.312-0300 [WARN]  Provider "registry.terraform.io/hashicorp/aws" produced an invalid plan for aws_kinesis_stream.data_stream_ingest, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .retention_period: planned value cty.NumberIntVal(24) for a non-computed attribute
+      - .encryption_type: planned value cty.StringVal("NONE") for a non-computed attribute
+      - .enforce_consumer_deletion: planned value cty.False for a non-computed attribute
+      - .stream_mode_details: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+2024-05-03T23:10:05.312-0300 [WARN]  Provider "registry.terraform.io/hashicorp/aws" produced an invalid plan for aws_api_gateway_rest_api.api_gateway, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .minimum_compression_size: planned value cty.NumberIntVal(-1) for a non-computed attribute
+      - .endpoint_configuration: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+2024-05-03T23:10:05.312-0300 [WARN]  Provider "registry.terraform.io/hashicorp/aws" produced an invalid plan for aws_iam_role.lambda_role, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .path: planned value cty.StringVal("/") for a non-computed attribute
+      - .force_detach_policies: planned value cty.False for a non-computed attribute
+      - .max_session_duration: planned value cty.NumberIntVal(3600) for a non-computed attribute
+      - .assume_role_policy: planned value cty.StringVal("{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"}}],\"Version\":\"2012-10-17\"}") does not match config value cty.StringVal("{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Principal\": {\n        \"Service\": \"lambda.amazonaws.com\"\n      },\n      \"Action\": \"sts:AssumeRole\"\n    }\n  ]\n}\n")
+      - .inline_policy: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+2024-05-03T23:10:05.312-0300 [WARN]  Provider "registry.terraform.io/hashicorp/aws" produced an invalid plan for aws_api_gateway_rest_api.http_api_gateway, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .minimum_compression_size: planned value cty.NumberIntVal(-1) for a non-computed attribute
+      - .endpoint_configuration: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+2024-05-03T23:10:05.313-0300 [WARN]  Provider "registry.terraform.io/hashicorp/aws" produced an invalid plan for aws_iam_role.api_gateway_to_cloudwatch, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .assume_role_policy: planned value cty.StringVal("{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"apigateway.amazonaws.com\"},\"Sid\":\"\"}],\"Version\":\"2012-10-17\"}") does not match config value cty.StringVal("{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": [\n        {\n            \"Sid\": \"\",\n            \"Effect\": \"Allow\",\n            \"Principal\": {\n                \"Service\": \"apigateway.amazonaws.com\"\n            },\n            \"Action\": \"sts:AssumeRole\"\n        }\n    ]\n}\n")
+      - .path: planned value cty.StringVal("/") for a non-computed attribute
+      - .force_detach_policies: planned value cty.False for a non-computed attribute
+      - .max_session_duration: planned value cty.NumberIntVal(3600) for a non-computed attribute
+      - .inline_policy: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+2024-05-03T23:10:05.313-0300 [WARN]  Provider "registry.terraform.io/hashicorp/aws" produced an invalid plan for aws_dynamodb_table.challenge_data_table, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .ttl: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+      - .point_in_time_recovery: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+      - .server_side_encryption: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+2024-05-03T23:10:05.315-0300 [WARN]  Provider "registry.terraform.io/hashicorp/aws" produced an invalid plan for aws_s3_bucket.bucket_lambda, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .force_destroy: planned value cty.False for a non-computed attribute
+      - .cors_rule: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+      - .lifecycle_rule: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+      - .replication_configuration: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+      - .server_side_encryption_configuration: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+      - .versioning: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+      - .website: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+      - .grant: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+      - .logging: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+      - .object_lock_configuration: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+2024-05-03T23:10:05.316-0300 [WARN]  Provider "registry.terraform.io/hashicorp/aws" produced an invalid plan for aws_apigatewayv2_integration.dynamodb_integration, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .connection_type: planned value cty.StringVal("INTERNET") for a non-computed attribute
+      - .payload_format_version: planned value cty.StringVal("1.0") for a non-computed attribute
+2024-05-03T23:10:05.323-0300 [WARN]  provider.terraform-provider-aws_v4.36.1_x5: Response contains warning diagnostic: tf_proto_version=5.3 @module=sdk.proto diagnostic_attribute="AttributeName(\"key\")" diagnostic_severity=WARNING diagnostic_summary="Argument is deprecated" tf_req_id=64d91969-d49d-a295-aa65-362a7c26cac0 tf_resource_type=aws_s3_bucket_object @caller=github.com/hashicorp/terraform-plugin-go@v0.14.0/tfprotov5/internal/diag/diagnostics.go:57 tf_rpc=ValidateResourceTypeConfig diagnostic_detail="Use the aws_s3_object resource instead" tf_provider_addr=registry.terraform.io/hashicorp/aws timestamp=2024-05-03T23:10:05.322-0300
+2024-05-03T23:10:05.323-0300 [WARN]  provider.terraform-provider-aws_v4.36.1_x5: Response contains warning diagnostic: diagnostic_detail="Use the aws_s3_object resource instead" tf_resource_type=aws_s3_bucket_object @caller=github.com/hashicorp/terraform-plugin-go@v0.14.0/tfprotov5/internal/diag/diagnostics.go:57 diagnostic_severity=WARNING diagnostic_summary="Argument is deprecated" tf_req_id=8690a883-f0c3-b18c-7a81-9f21c5de8f3f diagnostic_attribute="AttributeName(\"key\")" tf_proto_version=5.3 tf_provider_addr=registry.terraform.io/hashicorp/aws tf_rpc=ValidateResourceTypeConfig @module=sdk.proto timestamp=2024-05-03T23:10:05.323-0300
+2024-05-03T23:10:05.323-0300 [WARN]  Provider "registry.terraform.io/hashicorp/aws" produced an invalid plan for aws_api_gateway_method.http_api_method, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .api_key_required: planned value cty.False for a non-computed attribute
+2024-05-03T23:10:05.325-0300 [WARN]  Provider "registry.terraform.io/hashicorp/aws" produced an invalid plan for aws_s3_bucket_object.lambda_object_ingest, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .acl: planned value cty.StringVal("private") for a non-computed attribute
+      - .force_destroy: planned value cty.False for a non-computed attribute
+2024-05-03T23:10:05.326-0300 [WARN]  Provider "registry.terraform.io/hashicorp/aws" produced an invalid plan for aws_s3_bucket_object.lambda_object, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .acl: planned value cty.StringVal("private") for a non-computed attribute
+      - .force_destroy: planned value cty.False for a non-computed attribute
+2024-05-03T23:10:05.326-0300 [WARN]  Provider "registry.terraform.io/hashicorp/aws" produced an invalid plan for aws_api_gateway_integration.http_api_integration, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .timeout_milliseconds: planned value cty.NumberIntVal(29000) for a non-computed attribute
+      - .connection_type: planned value cty.StringVal("INTERNET") for a non-computed attribute
+2024-05-03T23:10:05.330-0300 [WARN]  Provider "registry.terraform.io/hashicorp/aws" produced an invalid plan for aws_lambda_function.lambda_ingest, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .reserved_concurrent_executions: planned value cty.NumberIntVal(-1) for a non-computed attribute
+      - .publish: planned value cty.False for a non-computed attribute
+      - .memory_size: planned value cty.NumberIntVal(128) for a non-computed attribute
+      - .timeout: planned value cty.NumberIntVal(3) for a non-computed attribute
+      - .package_type: planned value cty.StringVal("Zip") for a non-computed attribute
+      - .tracing_config: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+      - .ephemeral_storage: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+2024-05-03T23:10:05.330-0300 [WARN]  Provider "registry.terraform.io/hashicorp/aws" produced an invalid plan for aws_lambda_function.lambda_get_data, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .package_type: planned value cty.StringVal("Zip") for a non-computed attribute
+      - .publish: planned value cty.False for a non-computed attribute
+      - .reserved_concurrent_executions: planned value cty.NumberIntVal(-1) for a non-computed attribute
+      - .timeout: planned value cty.NumberIntVal(3) for a non-computed attribute
+      - .memory_size: planned value cty.NumberIntVal(128) for a non-computed attribute
+      - .tracing_config: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+      - .ephemeral_storage: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+2024-05-03T23:10:05.333-0300 [WARN]  Provider "registry.terraform.io/hashicorp/aws" produced an invalid plan for aws_lambda_event_source_mapping.kinesis_trigger, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .enabled: planned value cty.True for a non-computed attribute
+      - .self_managed_kafka_event_source_config: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+      - .amazon_managed_kafka_event_source_config: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+2024-05-03T23:10:05.343-0300 [INFO]  backend/local: plan operation completed
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_api_gateway_deployment.http_api_deployment will be created
+  + resource "aws_api_gateway_deployment" "http_api_deployment" {
+      + created_date  = (known after apply)
+      + execution_arn = (known after apply)
+      + id            = (known after apply)
+      + invoke_url    = (known after apply)
+      + rest_api_id   = (known after apply)
+      + stage_name    = "dev"
+    }
+
+  # aws_api_gateway_integration.http_api_integration will be created
+  + resource "aws_api_gateway_integration" "http_api_integration" {
+      + cache_namespace         = (known after apply)
+      + connection_type         = "INTERNET"
+      + http_method             = "GET"
+      + id                      = (known after apply)
+      + integration_http_method = "GET"
+      + passthrough_behavior    = (known after apply)
+      + resource_id             = (known after apply)
+      + rest_api_id             = (known after apply)
+      + timeout_milliseconds    = 29000
+      + type                    = "HTTP"
+      + uri                     = "https://my-challenge-endpoint"
+    }
+
+  # aws_api_gateway_method.http_api_method will be created
+  + resource "aws_api_gateway_method" "http_api_method" {
+      + api_key_required = false
+      + authorization    = "NONE"
+      + http_method      = "GET"
+      + id               = (known after apply)
+      + resource_id      = (known after apply)
+      + rest_api_id      = (known after apply)
+    }
+
+  # aws_api_gateway_resource.http_api_resource will be created
+  + resource "aws_api_gateway_resource" "http_api_resource" {
+      + id          = (known after apply)
+      + parent_id   = (known after apply)
+      + path        = (known after apply)
+      + path_part   = "data"
+      + rest_api_id = (known after apply)
+    }
+
+  # aws_api_gateway_rest_api.api_gateway will be created
+  + resource "aws_api_gateway_rest_api" "api_gateway" {
+      + api_key_source               = (known after apply)
+      + arn                          = (known after apply)
+      + binary_media_types           = (known after apply)
+      + created_date                 = (known after apply)
+      + description                  = "API para servir los datos almacenados en dynamodb"
+      + disable_execute_api_endpoint = (known after apply)
+      + execution_arn                = (known after apply)
+      + id                           = (known after apply)
+      + minimum_compression_size     = -1
+      + name                         = "my-challenge-api"
+      + policy                       = (known after apply)
+      + root_resource_id             = (known after apply)
+      + tags_all                     = {
+          + "IAC"         = "Terraform"
+          + "IAC_Version" = "1.8.2"
+          + "cloud"       = "AWS"
+          + "env"         = "DEV"
+          + "owner"       = "Pablo Moyano"
+        }
+    }
+
+  # aws_api_gateway_rest_api.http_api_gateway will be created
+  + resource "aws_api_gateway_rest_api" "http_api_gateway" {
+      + api_key_source               = (known after apply)
+      + arn                          = (known after apply)
+      + binary_media_types           = (known after apply)
+      + created_date                 = (known after apply)
+      + description                  = "API for serving HTTP endpoints"
+      + disable_execute_api_endpoint = (known after apply)
+      + execution_arn                = (known after apply)
+      + id                           = (known after apply)
+      + minimum_compression_size     = -1
+      + name                         = "my-challenge-http-api"
+      + policy                       = (known after apply)
+      + root_resource_id             = (known after apply)
+      + tags_all                     = {
+          + "IAC"         = "Terraform"
+          + "IAC_Version" = "1.8.2"
+          + "cloud"       = "AWS"
+          + "env"         = "DEV"
+          + "owner"       = "Pablo Moyano"
+        }
+    }
+
+  # aws_apigatewayv2_integration.dynamodb_integration will be created
+  + resource "aws_apigatewayv2_integration" "dynamodb_integration" {
+      + api_id                                    = (known after apply)
+      + connection_type                           = "INTERNET"
+      + id                                        = (known after apply)
+      + integration_method                        = "POST"
+      + integration_response_selection_expression = (known after apply)
+      + integration_type                          = "AWS_PROXY"
+      + integration_uri                           = (known after apply)
+      + payload_format_version                    = "1.0"
+      + timeout_milliseconds                      = (known after apply)
+    }
+
+  # aws_cloudwatch_metric_alarm.dynamodb_alarm will be created
+  + resource "aws_cloudwatch_metric_alarm" "dynamodb_alarm" {
+      + actions_enabled                       = true
+      + alarm_description                     = "Alarma cuando la capacidad de la escritura en DynamoDB está siendo afectada"
+      + alarm_name                            = "dynamodb-throttling-alarm"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanOrEqualToThreshold"
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 2
+      + id                                    = (known after apply)
+      + metric_name                           = "ConsumedWriteCapacityUnits"
+      + namespace                             = "AWS/DynamoDB"
+      + period                                = 120
+      + statistic                             = "Sum"
+      + tags_all                              = {
+          + "IAC"         = "Terraform"
+          + "IAC_Version" = "1.8.2"
+          + "cloud"       = "AWS"
+          + "env"         = "DEV"
+          + "owner"       = "Pablo Moyano"
+        }
+      + threshold                             = 10
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_dynamodb_table.challenge_data_table will be created
+  + resource "aws_dynamodb_table" "challenge_data_table" {
+      + arn              = (known after apply)
+      + billing_mode     = "PAY_PER_REQUEST"
+      + hash_key         = "id"
+      + id               = (known after apply)
+      + name             = "my-challenge-data-table"
+      + read_capacity    = (known after apply)
+      + stream_arn       = (known after apply)
+      + stream_label     = (known after apply)
+      + stream_view_type = (known after apply)
+      + tags_all         = {
+          + "IAC"         = "Terraform"
+          + "IAC_Version" = "1.8.2"
+          + "cloud"       = "AWS"
+          + "env"         = "DEV"
+          + "owner"       = "Pablo Moyano"
+        }
+      + write_capacity   = (known after apply)
+
+      + attribute {
+          + name = "id"
+          + type = "S"
+        }
+    }
+
+  # aws_iam_policy.api_gateway_to_cloudwatch will be created
+  + resource "aws_iam_policy" "api_gateway_to_cloudwatch" {
+      + arn         = (known after apply)
+      + description = "Policy for api gateway to write cloudwatch logs"
+      + id          = (known after apply)
+      + name        = "api-gateway-to-cloudwatch"
+      + path        = "/"
+      + policy      = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action   = [
+                          + "logs:CreateLogGroup",
+                          + "logs:CreateLogStream",
+                          + "logs:DescribeLogGroups",
+                          + "logs:DescribeLogStreams",
+                          + "logs:PutLogEvents",
+                          + "logs:GetLogEvents",
+                          + "logs:FilterLogEvents",
+                        ]
+                      + Effect   = "Allow"
+                      + Resource = "*"
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + policy_id   = (known after apply)
+      + tags_all    = {
+          + "IAC"         = "Terraform"
+          + "IAC_Version" = "1.8.2"
+          + "cloud"       = "AWS"
+          + "env"         = "DEV"
+          + "owner"       = "Pablo Moyano"
+        }
+    }
+
+  # aws_iam_role.api_gateway_to_cloudwatch will be created
+  + resource "aws_iam_role" "api_gateway_to_cloudwatch" {
+      + arn                   = (known after apply)
+      + assume_role_policy    = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action    = "sts:AssumeRole"
+                      + Effect    = "Allow"
+                      + Principal = {
+                          + Service = "apigateway.amazonaws.com"
+                        }
+                      + Sid       = ""
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + create_date           = (known after apply)
+      + force_detach_policies = false
+      + id                    = (known after apply)
+      + managed_policy_arns   = (known after apply)
+      + max_session_duration  = 3600
+      + name                  = "api-gateway-to-cloudwatch"
+      + name_prefix           = (known after apply)
+      + path                  = "/"
+      + tags_all              = {
+          + "IAC"         = "Terraform"
+          + "IAC_Version" = "1.8.2"
+          + "cloud"       = "AWS"
+          + "env"         = "DEV"
+          + "owner"       = "Pablo Moyano"
+        }
+      + unique_id             = (known after apply)
+    }
+
+  # aws_iam_role.lambda_role will be created
+  + resource "aws_iam_role" "lambda_role" {
+      + arn                   = (known after apply)
+      + assume_role_policy    = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action    = "sts:AssumeRole"
+                      + Effect    = "Allow"
+                      + Principal = {
+                          + Service = "lambda.amazonaws.com"
+                        }
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + create_date           = (known after apply)
+      + force_detach_policies = false
+      + id                    = (known after apply)
+      + managed_policy_arns   = (known after apply)
+      + max_session_duration  = 3600
+      + name                  = "lambda_execution_role"
+      + name_prefix           = (known after apply)
+      + path                  = "/"
+      + tags_all              = {
+          + "IAC"         = "Terraform"
+          + "IAC_Version" = "1.8.2"
+          + "cloud"       = "AWS"
+          + "env"         = "DEV"
+          + "owner"       = "Pablo Moyano"
+        }
+      + unique_id             = (known after apply)
+    }
+
+  # aws_iam_role_policy_attachment.api_gateway_to_cloudwatch will be created
+  + resource "aws_iam_role_policy_attachment" "api_gateway_to_cloudwatch" {
+      + id         = (known after apply)
+      + policy_arn = (known after apply)
+      + role       = "api-gateway-to-cloudwatch"
+    }
+
+  # aws_kinesis_stream.data_stream_ingest will be created
+  + resource "aws_kinesis_stream" "data_stream_ingest" {
+      + arn                       = (known after apply)
+      + encryption_type           = "NONE"
+      + enforce_consumer_deletion = false
+      + id                        = (known after apply)
+      + name                      = "challenge-data-stream"
+      + retention_period          = 24
+      + shard_count               = 1
+      + tags_all                  = {
+          + "IAC"         = "Terraform"
+          + "IAC_Version" = "1.8.2"
+          + "cloud"       = "AWS"
+          + "env"         = "DEV"
+          + "owner"       = "Pablo Moyano"
+        }
+    }
+
+  # aws_lambda_event_source_mapping.kinesis_trigger will be created
+  + resource "aws_lambda_event_source_mapping" "kinesis_trigger" {
+      + batch_size                    = 100
+      + enabled                       = true
+      + event_source_arn              = (known after apply)
+      + function_arn                  = (known after apply)
+      + function_name                 = "ingestdatatodynamodb"
+      + id                            = (known after apply)
+      + last_modified                 = (known after apply)
+      + last_processing_result        = (known after apply)
+      + maximum_record_age_in_seconds = (known after apply)
+      + maximum_retry_attempts        = (known after apply)
+      + parallelization_factor        = (known after apply)
+      + starting_position             = "LATEST"
+      + state                         = (known after apply)
+      + state_transition_reason       = (known after apply)
+      + uuid                          = (known after apply)
+    }
+
+  # aws_lambda_function.lambda_get_data will be created
+  + resource "aws_lambda_function" "lambda_get_data" {
+      + architectures                  = (known after apply)
+      + arn                            = (known after apply)
+      + filename                       = "lambdaapigw.py"
+      + function_name                  = "getdatafromdynamodb"
+      + handler                        = "lambda_function.lambda_handler"
+      + id                             = (known after apply)
+      + invoke_arn                     = (known after apply)
+      + last_modified                  = (known after apply)
+      + memory_size                    = 128
+      + package_type                   = "Zip"
+      + publish                        = false
+      + qualified_arn                  = (known after apply)
+      + qualified_invoke_arn           = (known after apply)
+      + reserved_concurrent_executions = -1
+      + role                           = (known after apply)
+      + runtime                        = "python3.8"
+      + signing_job_arn                = (known after apply)
+      + signing_profile_version_arn    = (known after apply)
+      + source_code_hash               = (known after apply)
+      + source_code_size               = (known after apply)
+      + tags_all                       = {
+          + "IAC"         = "Terraform"
+          + "IAC_Version" = "1.8.2"
+          + "cloud"       = "AWS"
+          + "env"         = "DEV"
+          + "owner"       = "Pablo Moyano"
+        }
+      + timeout                        = 3
+      + version                        = (known after apply)
+    }
+
+  # aws_lambda_function.lambda_ingest will be created
+  + resource "aws_lambda_function" "lambda_ingest" {
+      + architectures                  = (known after apply)
+      + arn                            = (known after apply)
+      + filename                       = "lambdaingest.py"
+      + function_name                  = "ingestdatatodynamodb"
+      + handler                        = "index.handler"
+      + id                             = (known after apply)
+      + invoke_arn                     = (known after apply)
+      + last_modified                  = (known after apply)
+      + memory_size                    = 128
+      + package_type                   = "Zip"
+      + publish                        = false
+      + qualified_arn                  = (known after apply)
+      + qualified_invoke_arn           = (known after apply)
+      + reserved_concurrent_executions = -1
+      + role                           = (known after apply)
+      + runtime                        = "python3.8"
+      + signing_job_arn                = (known after apply)
+      + signing_profile_version_arn    = (known after apply)
+      + source_code_hash               = (known after apply)
+      + source_code_size               = (known after apply)
+      + tags_all                       = {
+          + "IAC"         = "Terraform"
+          + "IAC_Version" = "1.8.2"
+          + "cloud"       = "AWS"
+          + "env"         = "DEV"
+          + "owner"       = "Pablo Moyano"
+        }
+      + timeout                        = 3
+      + version                        = (known after apply)
+    }
+
+  # aws_s3_bucket.bucket_lambda will be created
+  + resource "aws_s3_bucket" "bucket_lambda" {
+      + acceleration_status         = (known after apply)
+      + acl                         = (known after apply)
+      + arn                         = (known after apply)
+      + bucket                      = "bucket-lambda"
+      + bucket_domain_name          = (known after apply)
+      + bucket_regional_domain_name = (known after apply)
+      + force_destroy               = false
+      + hosted_zone_id              = (known after apply)
+      + id                          = (known after apply)
+      + object_lock_enabled         = (known after apply)
+      + policy                      = (known after apply)
+      + region                      = (known after apply)
+      + request_payer               = (known after apply)
+      + tags                        = {
+          + "Name"        = "Bucket lambda"
+          + "description" = "Bucket para subir desplegar la función lambda"
+        }
+      + tags_all                    = {
+          + "IAC"         = "Terraform"
+          + "IAC_Version" = "1.8.2"
+          + "Name"        = "Bucket lambda"
+          + "cloud"       = "AWS"
+          + "description" = "Bucket para subir desplegar la función lambda"
+          + "env"         = "DEV"
+          + "owner"       = "Pablo Moyano"
+        }
+      + website_domain              = (known after apply)
+      + website_endpoint            = (known after apply)
+    }
+
+  # aws_s3_bucket_object.lambda_object will be created
+  + resource "aws_s3_bucket_object" "lambda_object" {
+      + acl                    = "private"
+      + bucket                 = (known after apply)
+      + bucket_key_enabled     = (known after apply)
+      + content_type           = (known after apply)
+      + etag                   = (known after apply)
+      + force_destroy          = false
+      + id                     = (known after apply)
+      + key                    = "lambdaapigw.py"
+      + kms_key_id             = (known after apply)
+      + server_side_encryption = (known after apply)
+      + source                 = "scripts/lambdaapigw.py"
+      + storage_class          = (known after apply)
+      + tags_all               = {
+          + "IAC"         = "Terraform"
+          + "IAC_Version" = "1.8.2"
+          + "cloud"       = "AWS"
+          + "env"         = "DEV"
+          + "owner"       = "Pablo Moyano"
+        }
+      + version_id             = (known after apply)
+    }
+
+  # aws_s3_bucket_object.lambda_object_ingest will be created
+  + resource "aws_s3_bucket_object" "lambda_object_ingest" {
+      + acl                    = "private"
+      + bucket                 = (known after apply)
+      + bucket_key_enabled     = (known after apply)
+      + content_type           = (known after apply)
+      + etag                   = (known after apply)
+      + force_destroy          = false
+      + id                     = (known after apply)
+      + key                    = "lambdaingest.py"
+      + kms_key_id             = (known after apply)
+      + server_side_encryption = (known after apply)
+      + source                 = "scripts/lambdaingest.py"
+      + storage_class          = (known after apply)
+      + tags_all               = {
+          + "IAC"         = "Terraform"
+          + "IAC_Version" = "1.8.2"
+          + "cloud"       = "AWS"
+          + "env"         = "DEV"
+          + "owner"       = "Pablo Moyano"
+        }
+      + version_id             = (known after apply)
+    }
+
+Plan: 20 to add, 0 to change, 0 to destroy.
