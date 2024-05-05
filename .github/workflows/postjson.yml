@@ -19,4 +19,4 @@ jobs:
       run: npm install -g newman
 
     - name: Run Postman collection
-      run: newman run config/collection_pmoyano.json --global-var "url=https://postman-echo.com/post" --global-var "payload=$(< pmoyano.json)"
+      run: newman run config/collection_pmoyano.json --global-var "url=https://postman-echo.com/post" --global-var "payload=$(< config/pmoyano.json)"
