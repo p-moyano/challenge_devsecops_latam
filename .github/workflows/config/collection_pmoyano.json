@@ -1,0 +1,33 @@
+{
+    "info": {
+      "_postman_id": "pmoyano",
+      "name": "Send Custom JSON Payload",
+      "description": "Collection to send a custom JSON payload to an API endpoint"
+    },
+    "item": [
+      {
+        "name": "Send JSON Payload",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{{payload}}"
+          },
+          "url": {
+            "raw": "{{url}}",
+            "protocol": "https",
+            "host": [
+              "{{url}}"
+            ]
+          }
+        }
+      }
+    ]
+  }
+  

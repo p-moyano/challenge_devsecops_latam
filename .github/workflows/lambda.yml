@@ -1,9 +1,10 @@
 name: Deploy Lambda Function
 
-on:
-  push:
-    branches:
-      - main
+on: workflow_dispatch
+  # push disabled to avoid automatically trigger during tests
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   deploy:
