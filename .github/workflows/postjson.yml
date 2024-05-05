@@ -19,4 +19,4 @@ jobs:
       run: npm install -g newman
 
     - name: Run Postman collection
-      run: newman run config/collection_pmoyano.json --global-var "url=https://postman-echo.com/post" --global-var "payload=$(< config/pmoyano.json)"
+      run: newman run config/collection_pmoyano.json --global-var "url=https://advana-challenge-check-api-cr-k4hdbggvoq-uc.a.run.app/devops" --global-var "payload=$(< config/pmoyano.json)"
