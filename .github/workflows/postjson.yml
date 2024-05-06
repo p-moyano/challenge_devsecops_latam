@@ -13,10 +13,10 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '14'
+        node-version: '16'
 
     - name: Install Newman
       run: npm install -g newman
 
     - name: Run Postman collection
-      run: newman run config/collection_pmoyano.json --global-var "url=https://postman-echo.com/post" --global-var "payload=$(< pmoyano.json)"
+      run: newman run config/collection_pmoyano.json --global-var "url=advana-challenge-check-api-cr-k4hdbggvoq-uc.a.run.app/devops" --global-var "payload=$(< config/pmoyano.json)"
